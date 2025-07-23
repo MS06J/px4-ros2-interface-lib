@@ -7,7 +7,7 @@
 
 #include <Eigen/Eigen>
 #include <optional>
-#include <px4_msgs/msg/TrajectorySetpoint.hpp>
+#include <px4_msgs/msg/trajectory_setpoint.hpp>
 
 #include <px4_ros2/common/setpoint_base.hpp>
 #include <px4_ros2/utils/geodesic.hpp>

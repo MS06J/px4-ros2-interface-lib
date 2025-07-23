@@ -12,7 +12,7 @@ namespace px4_ros2 {
 ConstantZDescned::ConstantZDescned(Context& context)
     : SetpointBase(context), _node(context.node()) {
     _constant_z_descned_pub = context.node().create_publisher<px4_msgs::msg::TrajectorySetpoint>(
-        context.topicNamespacePrefix() + "fmu/in/goto_setpoint" +
+        context.topicNamespacePrefix() + "fmu/in/trajectory_setpoint" +
             px4_ros2::getMessageNameVersion<px4_msgs::msg::TrajectorySetpoint>(),
         1);
 }
@@ -28,7 +28,7 @@ void ConstantZDescned::update(const Eigen::Vector3f& position,
     sp.position[0] = position(0);
     sp.position[1] = position(1);
     sp.position[2] = std::nanf("");
-    sp.heading = heading.value_or(0.f);
+    sp.yaw = heading;
 
     sp.velocity[0] = std::nanf("");
     sp.velocity[1] = std::nanf("");
